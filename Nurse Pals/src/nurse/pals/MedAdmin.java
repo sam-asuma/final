@@ -1,12 +1,15 @@
 package nurse.pals;
 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.regex.Pattern;
+ 
 
 public class MedAdmin {
 	
 	private Date date;
 	private String Administrator;
-	private Drug drug;
+	private Prescription drug;
 	private double dropRate;
 	
 	public double dropRate() {
@@ -14,52 +17,55 @@ public class MedAdmin {
 		
 	}
 	
-	public String txt = "1 T get Q.D.";
-	NursePalsGui gui = new NursePalsGui();
-
+	 public static  String txt = "1 T PO QD";
+	 
 
 	
-	//public String[] words = txt.split(" ");
-	public String[] words = gui.getTxtSigText().getText().split(" ");
+	
 
 	
 
 	
-	public void display() {
-		for (int i = 0; i < words.length; i++) {
-			System.out.print(words[i] + " ");
-		}
-	}
 
-	public String translate() {
-		for (int i = 0; i < words.length; i++) {
-			words[i] = words[i].toLowerCase();
-			words[i] = words[i].replaceAll("\\bt\\b", "Tablet");
-			words[i] = words[i].replace("po", "by mouth");
-			words[i] = words[i].replace("qd", "every day");
-			System.out.print( words[i] + " ");
-			String translate = words[i] + " ";
-		}
-		
-		return translate();	
+	 public static String translate(String sig) {
+			
+		 	 sig = sig.toLowerCase();
+		 
+		 	
+			String find [] = { " t ", "po","qd"};
+			String replace [] = {" Tablet ", "by mouth", "every day" };
 
-	}
+			
+
+			for (int i = 0; i < find.length; i++) {
+				
+				
+				sig = sig.replace(find[i], replace[i]);
+				
+				//System.out.println(sig);
+			}
+			
+			return sig;
+				
+				
+				 
+			}
+	/*
+	 * public void display() { for (int i = 0; i < words.length; i++) {
+	 * System.out.print(words[i] + " "); } }
+	 */
 	
 
 
 	public static void main(String[] args) {
-
-		MedAdmin obj = new MedAdmin();
-		obj.display();
-		System.out.println();
-		obj.translate();
-		NursePalsGui guiOutput = new NursePalsGui();
-		guiOutput.txtSigText.setText(obj.translate());
+		
+		String s  = translate(txt);
+		System.out.println(s);
 
 		
 
 	}
 	
 	
-
 }
+

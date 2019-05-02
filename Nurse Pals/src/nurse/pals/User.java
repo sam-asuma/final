@@ -1,18 +1,29 @@
 package nurse.pals;
 
+import java.util.Comparator;
+
+import edu.century.pa5.Product;
+
 public class User {
 	
 	
-	private long id;
+	
 	private String username;
 	private String password;
 	
-	public long getId() {
-		return id;
+	public User() {
+		super();
 	}
-	public void setId(long id) {
-		this.id = id;
+	
+	
+	public User(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
 	}
+	
+	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -25,9 +36,32 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setAccess() {
-		
+	
+	
+	  @Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + "]";
 	}
+
+
+	public static Comparator<User> CompareByPass = new Comparator<User>() {
+	  
+	  @Override public int compare(User p1, User p2) { return
+	  p1.password.compareTo(p2.password); } };
+	  
+	  public static Comparator<User> CompareByUsername = new Comparator<User>() {
+		  
+		  @Override public int compare(User p1, User p2) { return
+		  p1.username.compareTo(p2.username); } };
+		  
+		  
+		  @Override
+		    public boolean equals(Object obj) {
+		        return (this.username.equals(((User) obj).username)
+		                && this.password.equals(((User) obj).password));
+		    }
+	 
+	
 	
 
 }

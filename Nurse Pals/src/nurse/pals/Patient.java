@@ -1,13 +1,19 @@
 package nurse.pals;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+import edu.century.pa5.Product;
+
 public class Patient {
 	
 	private long id;
 	private String firstName;
 	private String lastName;
 	private char middleInitial;
-	private int SSN;
-	private int DOB;
+	private long SSN;
+	private String DOB;
 	private double height;
 	private double weight;
 	private char sex;
@@ -16,6 +22,51 @@ public class Patient {
 	private String pharmacy;
 	private String emergencyContact;
 	
+	
+	
+	public Patient(long id, String firstName, String lastName, char middleInitial, long SSN, String dOB, double height,
+			double weight, char sex, String address, String primaryDoctor) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.middleInitial = middleInitial;
+		this.SSN = SSN;
+		DOB = dOB;
+		this.height = height;
+		this.weight = weight;
+		this.sex = sex;
+		this.address = address;
+		this.primaryDoctor = primaryDoctor;
+	}
+	
+	
+	public Patient() {
+		super();
+	}
+	
+	
+	public Patient(String firstName, String lastName, long SSN, String address) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.SSN= SSN;
+		this.address = address;
+	}
+	 
+	
+	
+	
+	
+
+
+
+
+	
+
+
+	
+
 	
 	
 	
@@ -43,16 +94,16 @@ public class Patient {
 	public void setMiddleInitial(char middleInitial) {
 		this.middleInitial = middleInitial;
 	}
-	public int getSSN() {
+	public long getSSN() {
 		return SSN;
 	}
-	public void setSSN(int sSN) {
-		SSN = sSN;
+	public void setSSN(long SSN) {
+		this.SSN = SSN;
 	}
-	public int getDOB() {
+	public String getDOB() {
 		return DOB;
 	}
-	public void setDOB(int dOB) {
+	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
 	public double getHeight() {
@@ -102,5 +153,41 @@ public class Patient {
 	
 	
 	
+	
+	
+	@Override
+	public String toString() {
+		return  firstName + lastName + SSN +  address;
+	}
 
-}
+
+	public String toAllString() {
+		return "Patient [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", middleInitial="
+				+ middleInitial + ", SSN=" + SSN + ", DOB=" + DOB + ", height=" + height + ", weight=" + weight
+				+ ", sex=" + sex + ", address=" + address + ", primaryDoctor=" + primaryDoctor + ", pharmacy="
+				+ pharmacy + ", emergencyContact=" + emergencyContact + "]";
+	}
+
+	
+	
+	public static Comparator<Patient> CompareByFirstName = new Comparator<Patient>() {
+		@Override
+		public int compare(Patient p1, Patient p2) {
+			return p1.firstName.compareTo(p2.firstName);
+		}
+	};
+
+	@Override
+    public boolean equals(Object obj) {
+        return (this.firstName.equals(((Patient) obj).firstName)
+                && this.lastName.equals(((Patient) obj).lastName)&&
+                this.address.equals(((Patient) obj).address));
+    }
+	
+    }
+
+	
+	
+	
+
+
