@@ -4,7 +4,7 @@ import java.awt.List;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import edu.century.pa5.Product;
+
 
 public class Patient {
 	
@@ -21,6 +21,7 @@ public class Patient {
 	private String primaryDoctor;
 	private String pharmacy;
 	private String emergencyContact;
+	
 	
 	
 	
@@ -55,13 +56,6 @@ public class Patient {
 	}
 	 
 	
-	
-	
-	
-
-
-
-
 	
 
 
@@ -162,10 +156,10 @@ public class Patient {
 
 
 	public String toAllString() {
-		return "Patient [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", middleInitial="
+		return "Patient id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", middleInitial="
 				+ middleInitial + ", SSN=" + SSN + ", DOB=" + DOB + ", height=" + height + ", weight=" + weight
 				+ ", sex=" + sex + ", address=" + address + ", primaryDoctor=" + primaryDoctor + ", pharmacy="
-				+ pharmacy + ", emergencyContact=" + emergencyContact + "]";
+				+ pharmacy + ", emergencyContact=" + emergencyContact ;
 	}
 
 	

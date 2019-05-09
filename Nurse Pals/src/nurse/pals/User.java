@@ -2,7 +2,6 @@ package nurse.pals;
 
 import java.util.Comparator;
 
-import edu.century.pa5.Product;
 
 public class User {
 	
